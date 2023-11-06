@@ -16,3 +16,89 @@ mypy = "^1.6.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+
+
+[tool.ruff]
+select = [
+    "C",
+    "E",
+    "F",
+    "W",
+    "B",
+    "I",
+    "C90",
+    "N",
+    "D",
+    "UP",
+    "YTT",
+    "ANN",
+    "S",
+    "BLE",
+    "FBT",
+    "A",
+    "COM",
+    "C4",
+    "DTZ",
+    "T10",
+    "ISC",
+    "ICN",
+    "INP",
+    "PIE",
+    "PT",
+    "RSE",
+    "RET",
+    "SLF",
+    "SIM",
+    "TID",
+    "ARG",
+    "PTH",
+    "PLE",
+    "PLR",
+    "PLW",
+    "TRY",
+    "RUF"
+    ]
+ignore = [
+    "E712", # comparison to True/False, we ignore because we use sqlalchemy
+    "ANN101", # missing type for self
+    "ANN102", # missing type for cls
+    "ANN201", # missing return type
+    "ANN202", # missing return type
+    "ANN206", # missing return type
+    "D100", # missing docstring
+    "D101", # missing docstring
+    "D102", # missing docstring
+    "D103", # missing docstring,
+    "D104", # missing docstring,
+    "D105", # missing docstring in magic method,
+    "D106", # missing docstring in nested class,
+    "D107", # missing docstring in __init__,
+    "D203", # 0 blank line required before class docstring,
+    "D204", # 1 blank line required after class docstring,
+    "D212", # multi-line docstring summary should start at the first line,
+    "D213", # multi-line docstring summary should start at the second line,
+    "D300", # use triple docstring
+    "D401", # first line should be in imperative mood,
+    "D417", # missing argument descriptions in the docstring,
+    "S101", # use of assert,
+    "PLR2004", # magic value used in comparison
+    "PT012", # ptest.raises should contain a simple statement
+    "TRY201", # missing exception type
+    "TRY003", # Avoid specifying long messages outside the exception class,
+    "FBT002", # Boolean default value in function definition,
+    "FBT001", # Boolean positional arg in function definition
+    ]
+line-length = 100
+exclude = [
+    ".venv",
+    "env",
+    "venv",
+    ".git",
+    "__pycache__",
+    ".github",
+    ".mypy_cache",
+    ".pytest_cache",
+]
