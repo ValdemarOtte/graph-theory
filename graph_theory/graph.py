@@ -57,14 +57,6 @@ a = {
 }
 
 g.create_adjacency_matrix()
-print(a)
 print(g.adjacency_matrix)
 
-#print("  " + " ".join(g.vertices))
-    
-    #l = Counter(g.graph[vertice])
-    #print(l)
-#for key in g.graph:
-#    print(key)
-#print()
 
