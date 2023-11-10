@@ -6,22 +6,33 @@
 # Local files
 from graph import Graph
 from mics import print_rich
+from algorithms.breadth_first_search import BFS
 
 
 if __name__ == "__main__":
     g = Graph()
     
-    g.add_edge("a", "b")
-    g.add_edge("a", "a")
-    g.add_edge("a", "c")
-    g.add_edge("b", "c")
-    g.add_edge("a", "b")
+    g.add_edge("1", "2")
+    g.add_edge("1", "3")
+    g.add_edge("1", "4")
+    g.add_edge("1", "5")
+    g.add_edge("2", "6")
+    g.add_edge("2", "7")
+    g.add_edge("3", "8")
+    g.add_edge("3", "9")
+    g.add_edge("4", "7")
+    g.add_edge("4", "10")
+    g.add_edge("5", "10")
+    g.add_edge("5", "11")
+    g.add_edge("6", "8")
+    g.add_edge("6", "12")
+    g.add_edge("7", "12")
+    g.add_edge("9", "11")
+    g.add_edge("9", "13")
+    g.add_edge("10", "11")
+    g.add_edge("10", "13")
 
-    a = {
-        "a": {"a": 2, "b": 2, "c": 1},
-        "b": {"a": 2, "b": 0, "c": 1},
-        "c": {"a": 1, "b": 1, "c": 0},
-    }
-
-    g.create_adjacency_matrix()
-    print_rich.print_adjacency_matrix(g.adjacency_matrix)
+    BFS_g = BFS(g, "1")
+    BFS_g.create_adjacency_matrix()
+    print(BFS_g.adjacency_matrix)
+    #print_rich.print_adjacency_matrix(BFS_g.adjacency_matrix)
