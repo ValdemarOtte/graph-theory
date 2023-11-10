@@ -77,11 +77,13 @@ ignore = [
     "D105", # missing docstring in magic method,
     "D106", # missing docstring in nested class,
     "D107", # missing docstring in __init__,
+    "D200", # one-line docstring should fit on one line
     "D203", # 0 blank line required before class docstring,
     "D204", # 1 blank line required after class docstring,
     "D212", # multi-line docstring summary should start at the first line,
     "D213", # multi-line docstring summary should start at the second line,
     "D300", # use triple docstring
+    "D407", # missing dashed underline after section
     "D401", # first line should be in imperative mood,
     "D417", # missing argument descriptions in the docstring,
     "S101", # use of assert,
