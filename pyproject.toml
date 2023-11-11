@@ -87,6 +87,9 @@ ignore = [
     "D407", # missing dashed underline after section
     "D401", # first line should be in imperative mood,
     "D417", # missing argument descriptions in the docstring,
+    "N802", # function name "X" should be lowercase
+    "N803", # argument name "X" should be lowercase
+    "N806", # variable "X" in function should be lowercase
     "S101", # use of assert,
     "PLR2004", # magic value used in comparison
     "PT012", # ptest.raises should contain a simple statement

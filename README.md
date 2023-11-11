@@ -9,7 +9,8 @@ Samling af algoritmer fra kurset [Grafteori I](https://kursuskatalog.au.dk/da/co
 ### Breadth First Search
 ```
 Input: a connected graph G(r)
-Output: an r-tree T in G with predecessor function p, a level function l such that l(v)=d_g(r,v) for all v in V, and a time function t
+Output: an r-tree T in G with predecessor function p, a level function l such
+that l(v)=d_g(r,v) for all v in V, and a time function t
  1. set i := 0 and Q := emptyset
  2. increment i by 1
  3. colour r black
@@ -20,7 +21,7 @@ Output: an r-tree T in G with predecessor function p, a level function l such th
  8.     if x has an uncoloured neighbour y then
  9.         increment i by 1
 10.         colour y black
-11.         set p(y) := x, l(x) := l(x) + 1 and t(y) := i
+11.         set p(y) := x, l(x) := l(y) + 1 and t(y) := i
 12.         append y to Q
 13.     else
 14.         remove x from Q

@@ -4,14 +4,12 @@
 # Third-party libraries
 
 # Local files
+from algorithms.breadth_first_search import BFS  # type: ignore
 from graph import Graph
-from mics import print_rich
-from algorithms.breadth_first_search import BFS
-
 
 if __name__ == "__main__":
     g = Graph()
-    
+
     g.add_edge("1", "2")
     g.add_edge("1", "3")
     g.add_edge("1", "4")
@@ -32,7 +30,8 @@ if __name__ == "__main__":
     g.add_edge("10", "11")
     g.add_edge("10", "13")
 
-    BFS_g = BFS(g, "1")
-    BFS_g.create_adjacency_matrix()
-    print(BFS_g.adjacency_matrix)
-    #print_rich.print_adjacency_matrix(BFS_g.adjacency_matrix)
+    BFS_g, level, time = BFS(g, "1")
+    print(level)
+    # BFS_g.create_adjacency_matrix()
+    # print(BFS_g.adjacency_matrix)
+    # print_rich.print_adjacency_matrix(BFS_g.adjacency_matrix)

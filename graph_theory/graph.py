@@ -6,7 +6,7 @@ class Graph:
         self.vertices: list = []
         self.adjacency_matrix: dict = {}
 
-    def add_edge(self, u: str, v: str, oriented=False) -> None:
+    def add_edge(self, u: str, v: str, oriented: bool = False) -> None:
         """
         New edge to the graph.
 
