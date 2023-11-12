@@ -5,7 +5,7 @@
 
 # Local files
 from algorithms.breadth_first_search import BFS  # type: ignore
-from graph import Graph
+from graph import Graph  # type: ignore
 
 if __name__ == "__main__":
     g = Graph()
