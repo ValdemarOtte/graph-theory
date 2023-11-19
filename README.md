@@ -4,13 +4,14 @@ Samling af algoritmer fra kurset [Grafteori I](https://kursuskatalog.au.dk/da/co
 ## Algoritmer
 - [Breadth First Search](#Breadth-First-Search)
 - [Deep First Search](#Deep-First-Search)
+- [Dijkstra's Algorithm](#Dijkstra's-Algorithm)
 - [Jarník-Prim Algorithm](#Jarník-Prim-Algorithm)
 
 ### Breadth First Search
 ```
 Input: a connected graph G(r)
 Output: an r-tree T in G with predecessor function p, a level function l such
-that l(v)=d_g(r,v) for all v in V, and a time function t
+        that l(v)=d_g(r,v) for all v in V, and a time function t
  1. set i := 0 and Q := emptyset
  2. increment i by 1
  3. colour r black
@@ -53,6 +54,22 @@ Output: a rooted spanning tree of G with predecessor function p, and two time fu
 17.     end if
 18. end while
 19. return (p, f, l)
+```
+
+### Dijkstra's Algorithm
+```
+Input: a positively weited diraph (D, w) with a specified vertex r
+Output: an r-branching in D wit predecessor function p,
+        and a function l : V -> R^+ such that l(v)=d_D(r,v) for all v in V
+1. set p(v) := emptyset, v in V, l(r) := 0 and l(v) := inf, v in V\{r}
+2. while there is an uncoloured vertexu wit l(u) < inf do
+3.     choose suc a vertex u for which l(u) is minimum
+4.     colour u black
+5.     for each uncoloured outneighbour v of u withh l(v) > l(v) + w(u, v) do
+6.         replace p(v) by u and l(v) by l(u) + w(u, v)
+7.     end for
+8. end while
+9. return (p, l)
 ```
 
 ### Jarník-Prim Algorithm
