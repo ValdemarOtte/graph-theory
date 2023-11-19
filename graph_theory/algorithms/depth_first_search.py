@@ -42,6 +42,6 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
     while [] != Q:
         # Consider the head of Q
         x = Q[-1]
-        # =
+        # ?
         Q.remove(x)
     return BFS_graph#, level, time

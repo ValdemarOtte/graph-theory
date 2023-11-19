@@ -4,15 +4,16 @@ class Graph:
     def __init__(self) -> None:
         self.graph: dict = {}
         self.vertices: list = []
+        self.costs: dict = {}
         self.adjacency_matrix: dict = {}
 
-    def add_edge(self, u: str, v: str, oriented: bool = False) -> None:
+    def add_edge(self, u: str, v: str, oriented: bool = False, cost: float = 0) -> None:
         """
         New edge to the graph.
 
         Args:
-            u: A vertices
-            v: A vertices
+            u: A vertice
+            v: A vertice
             oriented: If the edge is oriented or not
         """
         if u not in self.vertices:
@@ -32,6 +33,24 @@ class Graph:
         else:
             self.graph[u].append(v)
             self.graph[v].append(u)
+
+        if oriented:
+            if u not in self.costs:
+                self.costs[u] = {}
+            self.costs[u][v] = cost
+        else:
+            if u not in self.costs:
+                self.costs[u] = {}
+            if v not in self.costs:
+                self.costs[v] = {}
+            self.costs[u][v] = cost
+            self.costs[v][u] = cost      
+        
+    def add_vertex(self, vertex):
+        if vertex not in self.vertices:
+            self.vertices.append(vertex)
+        if vertex not in self.graph:
+            self.graph[vertex] = []
 
     def create_adjacency_matrix(self) -> None:
         """
