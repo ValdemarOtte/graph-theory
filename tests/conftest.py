@@ -10,8 +10,6 @@ from graph_theory.graph import Graph
 # --------------------------------------------------
 # Variables to test_graph.py
 # --------------------------------------------------
-
-
 @pytest.fixture()
 def simple_graph():
     g = Graph()
@@ -24,6 +22,33 @@ def simple_graph():
 
     g.create_adjacency_matrix()
     return g
+
+@pytest.fixture()
+def valid_graph():
+    # fmt: off
+    valid_graph = {
+        "a": ["b", "a", "a", "c", "b"],
+        "b": ["a", "c", "a"],
+        "c": ["a", "b"]
+    }
+    # fmt: on
+    return valid_graph  # noqa: RET504
+
+
+@pytest.fixture()
+def valid_vertices():
+    valid_vertices = ["a", "b", "c"]
+    return valid_vertices  # noqa: RET504
+
+
+@pytest.fixture()
+def valid_adjacency_matrix():
+    valid_adjacency_matrix = {
+        "a": {"a": 2, "b": 2, "c": 1},
+        "b": {"a": 2, "b": 0, "c": 1},
+        "c": {"a": 1, "b": 1, "c": 0},
+    }
+    return valid_adjacency_matrix  # noqa: RET504
 
 
 # --------------------------------------------------
