@@ -8,6 +8,10 @@ import pytest
 from graph_theory.graph import Graph
 
 
+# --------------------------------------------------
+# Variables to test_graph.py
+# --------------------------------------------------
+
 @pytest.fixture()
 def simple_graph():
     g = Graph()
@@ -21,7 +25,9 @@ def simple_graph():
     g.create_adjacency_matrix()
     return g
 
-
+# --------------------------------------------------
+# Variables to test_breadth_first_search.py
+# --------------------------------------------------
 @pytest.fixture()
 def BFS_graph():
     g = Graph()
@@ -290,3 +296,56 @@ def BFS_valid_time():
         "13": 13,
     }
     return valid_time  # noqa: RET504
+
+
+# --------------------------------------------------
+# Variables to test_jarnik_prim.py
+# --------------------------------------------------
+@pytest.fixture()
+def Jarnik_Prim_graph():
+    g = Graph()
+
+    g.add_edge("B", "C", cost=1457)
+    g.add_edge("B", "G", cost=1892)
+    g.add_edge("B", "N", cost=901)
+    g.add_edge("B", "S", cost=1078)
+    g.add_edge("B", "T", cost=111)
+    g.add_edge("B", "W", cost=1057)
+    g.add_edge("B", "Y", cost=1117)
+
+    g.add_edge("C", "G", cost=978)
+    g.add_edge("C", "N", cost=1199)
+    g.add_edge("C", "S", cost=1430)
+    g.add_edge("C", "T", cost=1442)
+    g.add_edge("C", "W", cost=750)
+    g.add_edge("C", "Y", cost=473)
+
+    g.add_edge("G", "N", cost=1133)
+    g.add_edge("G", "S", cost=1197)
+    g.add_edge("G", "T", cost=1820)
+    g.add_edge("G", "W", cost=837)
+    g.add_edge("G", "Y", cost=867)
+
+    g.add_edge("N", "S", cost=267)
+    g.add_edge("N", "T", cost=800)
+    g.add_edge("N", "W", cost=459)
+    g.add_edge("N", "Y", cost=727)
+
+    g.add_edge("S", "T", cost=970)
+    g.add_edge("S", "W", cost=681)
+    g.add_edge("S", "Y", cost=962)
+
+    g.add_edge("T", "W", cost=988)
+    g.add_edge("T", "Y", cost=1080)
+
+    g.add_edge("W", "Y", cost=285)
+    return g
+
+@pytest.fixture()
+def Jarnik_Prim_valid_adjacency_matrix():
+    Jarnik_Prim_valid_adjacency_matrix = {'Y': {'Y': 0, 'W': 1, 'N': 0, 'S': 0, 'C': 1, 'T': 0, 'B': 0, 'G': 0}, 'W': {'Y': 1, 'W': 0, 'N': 1, 'S': 0, 'C': 0, 'T': 0, 'B': 0, 'G': 1}, 'N': {'Y': 0, 'W': 1, 'N': 0, 'S': 1, 'C': 0, 'T': 1, 'B': 0, 'G': 0}, 'S': {'Y': 0, 'W': 0, 'N': 1, 'S': 0, 'C': 0, 'T': 0, 'B': 0, 'G': 0}, 'C': {'Y': 1, 'W': 0, 'N': 0, 'S': 0, 'C': 0, 'T': 0, 'B': 0, 'G': 0}, 'T': {'Y': 0, 'W': 0, 'N': 1, 'S': 0, 'C': 0, 'T': 0, 'B': 1, 'G': 0}, 'B': {'Y': 0, 'W': 0, 'N': 0, 'S': 0, 'C': 0, 'T': 1, 'B': 0, 'G': 0}, 'G': {'Y': 0, 'W': 1, 'N': 0, 'S': 0, 'C': 0, 'T': 0, 'B': 0, 'G': 0}}
+    return Jarnik_Prim_valid_adjacency_matrix  # noqa: RET504
+
+@pytest.fixture()
+def Jarnik_Prim_valid_cost():
+    return 3232.0

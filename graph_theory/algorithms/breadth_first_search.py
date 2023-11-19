@@ -30,7 +30,7 @@ def BFS(graph: Graph, r: None) -> (Graph, dict, dict):
 
     # Pick root if none is giving
     if not r:
-        choice(graph.vertices)  # noqa: S311
+        r = choice(graph.vertices)  # noqa: S311
 
     # Update level, time and visited with root
     Q.append(r)
