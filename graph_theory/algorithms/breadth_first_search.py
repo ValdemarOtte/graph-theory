@@ -7,7 +7,7 @@ from random import choice
 from graph_theory.graph import Graph
 
 
-def BFS(graph: Graph, r: None) -> (Graph, dict, dict):
+def BFS(graph: Graph, r: None) -> tuple[Graph, dict, dict]:
     """
     Breadth-First Search.
 

@@ -25,8 +25,8 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
     index = 1
     Q: list = []
     visited: list = []
-    #time: dict = {}
-    #level: dict = {}
+    # time: dict = {}
+    # level: dict = {}
 
     # Pick root if none is giving
     if not r:
@@ -34,8 +34,8 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
 
     # Update level, time and visited with root
     Q.append(r)
-    #time[r] = index
-    #level[r] = 0
+    # time[r] = index
+    # level[r] = 0
     visited.append(r)
 
     # Run algorithm while Q is nonemprt
@@ -44,4 +44,4 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
         x = Q[-1]
         # ?
         Q.remove(x)
-    return BFS_graph#, level, time
+    return BFS_graph  # , level, time

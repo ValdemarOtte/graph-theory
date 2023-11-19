@@ -6,18 +6,26 @@ from random import choice
 # Third-party libraries
 # Local files
 from graph_theory.graph import Graph
-from graph_theory.mics.print_rich import print_adjacency_matrix
 
 
+def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[Graph, float]:
+    """
+    Jarnik Prim Algoritm for an optimal tree T of G with predecessor function p, and its weight.
 
-def jarnik_prim_algoritm(graph: Graph, r: None = None) -> (Graph, dict):
+    Args:
+        graph: The graph which Jarnik Prim algoritm will be used on
+        r: The root of the algoritm. Defalut is a empty string
+
+    Returns:
+        An optimal tree T of graph and its weigth
+    """
     jarnik_prim_graph = Graph()
 
     uncoloured = graph.vertices
-    T_cost = 0
-    
+    T_cost = 0.0
+
     # Pick root if none is giving
-    if not r:
+    if r == "":
         r = choice(graph.vertices)  # noqa: S311
 
     jarnik_prim_graph.add_vertex(r)
@@ -37,5 +45,5 @@ def jarnik_prim_algoritm(graph: Graph, r: None = None) -> (Graph, dict):
         jarnik_prim_graph.add_edge(vv, uu)
         # Step 9
         T_cost += min_cost
-        
+
     return jarnik_prim_graph, T_cost

@@ -7,7 +7,7 @@ class Graph:
         self.costs: dict = {}
         self.adjacency_matrix: dict = {}
 
-    def add_edge(self, u: str, v: str, oriented: bool = False, cost: float = 0) -> None:
+    def add_edge(self, u: str, v: str, oriented: bool = False, cost: float = 0.0) -> None:
         """
         New edge to the graph.
 
@@ -44,9 +44,9 @@ class Graph:
             if v not in self.costs:
                 self.costs[v] = {}
             self.costs[u][v] = cost
-            self.costs[v][u] = cost      
-        
-    def add_vertex(self, vertex):
+            self.costs[v][u] = cost
+
+    def add_vertex(self, vertex: str) -> None:
         if vertex not in self.vertices:
             self.vertices.append(vertex)
         if vertex not in self.graph:
