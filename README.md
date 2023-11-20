@@ -4,7 +4,7 @@ Samling af algoritmer fra kurset [Grafteori I](https://kursuskatalog.au.dk/da/co
 ## Algoritmer
 - [Breadth First Search](#Breadth-First-Search)
 - [Deep First Search](#Deep-First-Search)
-- [Dijkstra's Algorithm](#Dijkstra's-Algorithm)
+- [Dijkstra's Algorithm](#Dijkstras-Algorithm)
 - [Jarník-Prim Algorithm](#Jarník-Prim-Algorithm)
 
 ### Breadth First Search
@@ -62,10 +62,10 @@ Input: a positively weited diraph (D, w) with a specified vertex r
 Output: an r-branching in D wit predecessor function p,
         and a function l : V -> R^+ such that l(v)=d_D(r,v) for all v in V
 1. set p(v) := emptyset, v in V, l(r) := 0 and l(v) := inf, v in V\{r}
-2. while there is an uncoloured vertexu wit l(u) < inf do
-3.     choose suc a vertex u for which l(u) is minimum
+2. while there is an uncoloured vertex with l(u) < inf do
+3.     choose such a vertex u for which l(u) is minimum
 4.     colour u black
-5.     for each uncoloured outneighbour v of u withh l(v) > l(v) + w(u, v) do
+5.     for each uncoloured outneighbour v of u with l(v) > l(v) + w(u, v) do
 6.         replace p(v) by u and l(v) by l(u) + w(u, v)
 7.     end for
 8. end while
