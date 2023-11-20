@@ -49,11 +49,12 @@ def dijktra_algoritm(graph: Graph, source: str, sink: str = "") -> tuple[Graph, 
 
         if uu == sink:
             break
-    
+    path = None
     # Create path here
 
-    return dijktra_g, costs
+    return dijktra_g, costs, path
 
+"""
 
 dijktra_g, costs = dijktra_algoritm(g, "A")
 dijktra_g.create_adjacency_matrix()
@@ -61,7 +62,6 @@ print(dijktra_g.adjacency_matrix)
 
 print("\n\n\n")
 print(costs)
-"""
 {'A': {'A': 0, 'C': 1, 'B': 1, 'E': 0, 'G': 0, 'F': 0, 'D': 0}, 'C': {'A': 1, 'C': 0, 'B': 0, 'E': 0, 'G': 0, 'F': 1, 'D': 0}, 'B': {'A': 1, 'C': 0, 'B': 0, 'E': 1, 'G': 0, 'F': 0, 'D': 1}, 'E': {'A': 0, 'C': 0, 'B': 1, 'E': 0, 'G': 1, 'F': 0, 'D': 0}, 'G': {'A': 0, 'C': 0, 'B': 0, 'E': 1, 'G': 0, 'F': 0, 'D': 0}, 'F': {'A': 0, 'C': 1, 'B': 0, 'E': 0, 'G': 0, 'F': 0, 'D': 0}, 'D': {'A': 0, 'C': 0, 'B': 1, 'E': 0, 'G': 0, 'F': 0, 'D': 0}}
 
 {'A': 0, 'B': 2, 'C': 1, 'D': 7, 'E': 3, 'F': 6, 'G': 4
