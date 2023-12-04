@@ -50,7 +50,6 @@ def dijktra_algoritm(graph: Graph, source: str, sink: str = "") -> tuple[Graph, 
         if uu == sink:
             break
     path = None
-    # Create path here
 
     return dijktra_g, costs, path
 
