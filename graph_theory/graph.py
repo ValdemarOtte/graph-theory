@@ -1,9 +1,18 @@
+### Imports
+# Standard library
+
+# Third-party libraries
+import numpy as np
+
+# Local files
+
 class Graph:
     """Standard Graph."""
 
     def __init__(self) -> None:
         self.graph: dict = {}
         self.vertices: list = []
+        self.edges: dict = {"orr": [], "not_orr": []}
         self.costs: dict = {}
         self.adjacency_matrix: dict = {}
 
@@ -35,10 +44,15 @@ class Graph:
             self.graph[v].append(u)
 
         if oriented:
+            self.edges["orr"].append((u, v))
+
             if u not in self.costs:
                 self.costs[u] = {}
             self.costs[u][v] = cost
         else:
+            self.edges["not_orr"].append((u, v))
+
+
             if u not in self.costs:
                 self.costs[u] = {}
             if v not in self.costs:
@@ -58,7 +72,7 @@ class Graph:
         """
         matrix: dict = {}
 
-        # Create adjacency matrix with all vertices where all values is zero.
+        # Create adjacency matrix with all vertices where all values is zero.2
         for v in self.vertices:
             matrix[v] = {}
             for u in self.vertices:
@@ -68,5 +82,9 @@ class Graph:
         for v in self.graph:
             for u in self.vertices:
                 matrix[v][u] = self.graph[v].count(u)
-
-        self.adjacency_matrix = matrix
+        
+        l = []
+        for d in matrix.values():
+            l.append([value for value in d.values()])
+        
+        self.adjacency_matrix = np.array(l)
