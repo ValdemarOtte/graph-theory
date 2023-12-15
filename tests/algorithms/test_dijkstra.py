@@ -12,12 +12,10 @@ class TestJDijkstraAlgoitm:
     def test_valid_dijkstra(
         self,
         dijkstra_graph: Graph,
-        dijkstra_valid_adjacency_matrix: dict,
+        dijkstra_valid_predecessor: dict,
         dijkstra_valid_cost: float,
     ):
         # run algorithm and create adjacency matrix
-        dijkstra_g, cost, path = dijktra_algoritm(dijkstra_graph, "A")
-        dijkstra_g.create_adjacency_matrix()
-        assert dijkstra_g.adjacency_matrix == dijkstra_valid_adjacency_matrix
+        predecessor, cost = dijktra_algoritm(dijkstra_graph, "A")
+        assert predecessor == dijkstra_valid_predecessor
         assert cost == dijkstra_valid_cost
-        assert path == None
