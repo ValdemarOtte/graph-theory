@@ -7,6 +7,7 @@ import pytest
 # Local files
 from graph_theory.graph import Graph
 
+
 # --------------------------------------------------
 # Variables to test_graph.py
 # --------------------------------------------------
@@ -22,6 +23,7 @@ def simple_graph():
 
     g.create_adjacency_matrix()
     return g
+
 
 @pytest.fixture()
 def valid_graph():
@@ -151,6 +153,69 @@ def BFS_valid_time():
 
 
 # --------------------------------------------------
+# Variables to test_dijkstra.py
+# --------------------------------------------------
+@pytest.fixture()
+def DFS_valid_predecessor():
+    valid_predecessor = {
+        "1": None,
+        "2": "1",
+        "3": "8",
+        "4": "10",
+        "5": "11",
+        "6": "2",
+        "7": "4",
+        "8": "6",
+        "9": "3",
+        "10": "5",
+        "11": "9",
+        "12": "7",
+        "13": "10",
+    }
+    return valid_predecessor  # noqa: RET504
+
+
+@pytest.fixture()
+def DFS_valid_time():
+    valid_time = {
+        "1": None,
+        "2": 2,
+        "3": 5,
+        "4": 10,
+        "5": 8,
+        "6": 3,
+        "7": 11,
+        "8": 4,
+        "9": 6,
+        "10": 9,
+        "11": 7,
+        "12": 12,
+        "13": 16,
+    }
+    return valid_time  # noqa: RET504
+
+
+@pytest.fixture()
+def DFS_valid_level():
+    valid_level = {
+        "1": 26,
+        "2": 25,
+        "3": 22,
+        "4": 15,
+        "5": 19,
+        "6": 24,
+        "7": 14,
+        "8": 23,
+        "9": 21,
+        "10": 18,
+        "11": 20,
+        "12": 13,
+        "13": 17,
+    }
+    return valid_level  # noqa: RET504
+
+
+# --------------------------------------------------
 # Variables to test_jarnik_prim.py
 # --------------------------------------------------
 @pytest.fixture()
@@ -201,10 +266,10 @@ def Jarnik_Prim_valid_predecessor():
         "C": "Y",
         "G": "W",
         "N": "W",
-        "S": "N", 
+        "S": "N",
         "T": "N",
         "W": "Y",
-        "Y": None
+        "Y": None,
     }
     return Jarnik_Prim_valid_predecessor  # noqa: RET504
 
@@ -235,18 +300,18 @@ def dijkstra_graph():
 @pytest.fixture()
 def dijkstra_valid_predecessor():
     dijkstra_valid_predecessor = {
-        'A': None,
-        'B': 'A',
-        'C': 'A',
-        'D': 'B',
-        'E': 'B',
-        'F': 'C',
-        'G': 'E'
+        "A": None,
+        "B": "A",
+        "C": "A",
+        "D": "B",
+        "E": "B",
+        "F": "C",
+        "G": "E",
     }
     return dijkstra_valid_predecessor  # noqa: RET504
 
 
 @pytest.fixture()
 def dijkstra_valid_cost():
-    costs = {'A': 0, 'B': 2, 'C': 1, 'D': 7, 'E': 3, 'F': 6, 'G': 4}
+    costs = {"A": 0, "B": 2, "C": 1, "D": 7, "E": 3, "F": 6, "G": 4}
     return costs

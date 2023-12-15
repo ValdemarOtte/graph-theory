@@ -20,8 +20,8 @@ def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[dict, float]:
         An optimal tree T of graph and its weigth
     """
     uncoloured = graph.vertices
-    predecessor = {v : None for v in graph.vertices}
-    cost = {v : inf for v in graph.vertices}
+    predecessor = {v: None for v in graph.vertices}
+    cost = {v: inf for v in graph.vertices}
     T_cost = 0.0
 
     # Pick root if none is giving
@@ -31,7 +31,7 @@ def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[dict, float]:
     cost[r] = 0
 
     while uncoloured != []:
-        uncoloured_vertexs_cost = {k:cost[k] for k in uncoloured if k in cost}
+        uncoloured_vertexs_cost = {k: cost[k] for k in uncoloured if k in cost}
         u = min(uncoloured_vertexs_cost, key=uncoloured_vertexs_cost.get)
         uncoloured.remove(u)
         T_cost += cost[u]
@@ -81,6 +81,7 @@ def Jarnik_Prim_graph():
 
     g.add_edge("W", "Y", cost=285)
     return g
+
 
 g = Jarnik_Prim_graph()
 p, t = jarnik_prim_algoritm(g, "Y")

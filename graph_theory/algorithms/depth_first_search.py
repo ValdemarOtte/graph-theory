@@ -20,13 +20,16 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
         level: A level dict
         time: A time dict
     """
-    BFS_graph = Graph()
     # Set variables
     index = 1
     Q: list = []
-    visited: list = []
+    uncoloured = graph.vertices
+
     # time: dict = {}
     # level: dict = {}
+    predecessor = {v: None for v in graph.vertices}
+    time = {v: None for v in graph.vertices}
+    level = {v: None for v in graph.vertices}
 
     # Pick root if none is giving
     if not r:
@@ -36,12 +39,23 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
     Q.append(r)
     # time[r] = index
     # level[r] = 0
-    visited.append(r)
+    uncoloured.remove(r)
 
     # Run algorithm while Q is nonemprt
-    while [] != Q:
+    while Q != []:
+        index += 1
         # Consider the head of Q
         x = Q[-1]
         # ?
-        Q.remove(x)
-    return BFS_graph  # , level, time
+        uncoloured_neighbour = [v for v in graph.graph[x] if v in uncoloured]
+        if len(uncoloured_neighbour) > 0:
+            u = uncoloured_neighbour[0]
+            predecessor[u] = x
+            time[u] = index
+            Q.append(u)
+            uncoloured.remove(u)
+        else:
+            level[x] = index
+            Q.remove(x)
+
+    return predecessor, time, level

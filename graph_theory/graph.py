@@ -6,6 +6,7 @@ import numpy as np
 
 # Local files
 
+
 class Graph:
     """Standard Graph."""
 
@@ -52,7 +53,6 @@ class Graph:
         else:
             self.edges["not_orr"].append((u, v))
 
-
             if u not in self.costs:
                 self.costs[u] = {}
             if v not in self.costs:
@@ -82,9 +82,9 @@ class Graph:
         for v in self.graph:
             for u in self.vertices:
                 matrix[v][u] = self.graph[v].count(u)
-        
+
         l = []
         for d in matrix.values():
             l.append([value for value in d.values()])
-        
+
         self.adjacency_matrix = np.array(l)
