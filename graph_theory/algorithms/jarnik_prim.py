@@ -8,7 +8,7 @@ from random import choice
 from graph_theory.graph import Graph
 
 
-def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[Graph, float]:
+def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[dict, float]:
     """
     Jarnik Prim Algoritm for an optimal tree T of G with predecessor function p, and its weight.
 
@@ -19,31 +19,70 @@ def jarnik_prim_algoritm(graph: Graph, r: str = "") -> tuple[Graph, float]:
     Returns:
         An optimal tree T of graph and its weigth
     """
-    jarnik_prim_graph = Graph()
-
     uncoloured = graph.vertices
+    predecessor = {v : None for v in graph.vertices}
+    cost = {v : inf for v in graph.vertices}
     T_cost = 0.0
 
     # Pick root if none is giving
     if r == "":
         r = choice(graph.vertices)  # noqa: S311
 
-    jarnik_prim_graph.add_vertex(r)
+    cost[r] = 0
 
-    uncoloured.remove(r)
     while uncoloured != []:
-        min_cost = inf
-        for v in jarnik_prim_graph.vertices:
-            for u in uncoloured:
-                if graph.costs[v][u] < min_cost:
-                    min_cost = graph.costs[v][u]
-                    uu = u
-                    vv = v
-        # Step 6
-        uncoloured.remove(uu)
-        # Step 8
-        jarnik_prim_graph.add_edge(vv, uu)
-        # Step 9
-        T_cost += min_cost
+        uncoloured_vertexs_cost = {k:cost[k] for k in uncoloured if k in cost}
+        u = min(uncoloured_vertexs_cost, key=uncoloured_vertexs_cost.get)
+        uncoloured.remove(u)
+        T_cost += cost[u]
 
-    return jarnik_prim_graph, T_cost
+        for v in uncoloured:
+            if graph.costs[v][u] < cost[v]:
+                predecessor[v] = u
+                cost[v] = graph.costs[v][u]
+    return predecessor, T_cost
+
+
+def Jarnik_Prim_graph():
+    g = Graph()
+
+    g.add_edge("B", "C", cost=1457)
+    g.add_edge("B", "G", cost=1892)
+    g.add_edge("B", "N", cost=901)
+    g.add_edge("B", "S", cost=1078)
+    g.add_edge("B", "T", cost=111)
+    g.add_edge("B", "W", cost=1057)
+    g.add_edge("B", "Y", cost=1117)
+
+    g.add_edge("C", "G", cost=978)
+    g.add_edge("C", "N", cost=1199)
+    g.add_edge("C", "S", cost=1430)
+    g.add_edge("C", "T", cost=1442)
+    g.add_edge("C", "W", cost=750)
+    g.add_edge("C", "Y", cost=473)
+
+    g.add_edge("G", "N", cost=1133)
+    g.add_edge("G", "S", cost=1197)
+    g.add_edge("G", "T", cost=1820)
+    g.add_edge("G", "W", cost=837)
+    g.add_edge("G", "Y", cost=867)
+
+    g.add_edge("N", "S", cost=267)
+    g.add_edge("N", "T", cost=800)
+    g.add_edge("N", "W", cost=459)
+    g.add_edge("N", "Y", cost=727)
+
+    g.add_edge("S", "T", cost=970)
+    g.add_edge("S", "W", cost=681)
+    g.add_edge("S", "Y", cost=962)
+
+    g.add_edge("T", "W", cost=988)
+    g.add_edge("T", "Y", cost=1080)
+
+    g.add_edge("W", "Y", cost=285)
+    return g
+
+g = Jarnik_Prim_graph()
+p, t = jarnik_prim_algoritm(g, "Y")
+print(p)
+print(t)

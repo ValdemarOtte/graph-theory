@@ -195,18 +195,18 @@ def Jarnik_Prim_graph():
 
 
 @pytest.fixture()
-def Jarnik_Prim_valid_adjacency_matrix():
-    Jarnik_Prim_valid_adjacency_matrix = {
-        "Y": {"Y": 0, "W": 1, "N": 0, "S": 0, "C": 1, "T": 0, "B": 0, "G": 0},
-        "W": {"Y": 1, "W": 0, "N": 1, "S": 0, "C": 0, "T": 0, "B": 0, "G": 1},
-        "N": {"Y": 0, "W": 1, "N": 0, "S": 1, "C": 0, "T": 1, "B": 0, "G": 0},
-        "S": {"Y": 0, "W": 0, "N": 1, "S": 0, "C": 0, "T": 0, "B": 0, "G": 0},
-        "C": {"Y": 1, "W": 0, "N": 0, "S": 0, "C": 0, "T": 0, "B": 0, "G": 0},
-        "T": {"Y": 0, "W": 0, "N": 1, "S": 0, "C": 0, "T": 0, "B": 1, "G": 0},
-        "B": {"Y": 0, "W": 0, "N": 0, "S": 0, "C": 0, "T": 1, "B": 0, "G": 0},
-        "G": {"Y": 0, "W": 1, "N": 0, "S": 0, "C": 0, "T": 0, "B": 0, "G": 0},
+def Jarnik_Prim_valid_predecessor():
+    Jarnik_Prim_valid_predecessor = {
+        "B": "T",
+        "C": "Y",
+        "G": "W",
+        "N": "W",
+        "S": "N", 
+        "T": "N",
+        "W": "Y",
+        "Y": None
     }
-    return Jarnik_Prim_valid_adjacency_matrix  # noqa: RET504
+    return Jarnik_Prim_valid_predecessor  # noqa: RET504
 
 
 @pytest.fixture()
@@ -235,18 +235,18 @@ def dijkstra_graph():
 @pytest.fixture()
 def dijkstra_valid_adjacency_matrix():
     dijkstra_valid_adjacency_matrix = {
-        'A': {'A': 0, 'C': 1, 'B': 1, 'E': 0, 'G': 0, 'F': 0, 'D': 0},
-        'C': {'A': 1, 'C': 0, 'B': 0, 'E': 0, 'G': 0, 'F': 1, 'D': 0},
-        'B': {'A': 1, 'C': 0, 'B': 0, 'E': 1, 'G': 0, 'F': 0, 'D': 1},
-        'E': {'A': 0, 'C': 0, 'B': 1, 'E': 0, 'G': 1, 'F': 0, 'D': 0},
-        'G': {'A': 0, 'C': 0, 'B': 0, 'E': 1, 'G': 0, 'F': 0, 'D': 0},
-        'F': {'A': 0, 'C': 1, 'B': 0, 'E': 0, 'G': 0, 'F': 0, 'D': 0},
-        'D': {'A': 0, 'C': 0, 'B': 1, 'E': 0, 'G': 0, 'F': 0, 'D': 0}
+        "A": {"A": 0, "C": 1, "B": 1, "E": 0, "G": 0, "F": 0, "D": 0},
+        "C": {"A": 1, "C": 0, "B": 0, "E": 0, "G": 0, "F": 1, "D": 0},
+        "B": {"A": 1, "C": 0, "B": 0, "E": 1, "G": 0, "F": 0, "D": 1},
+        "E": {"A": 0, "C": 0, "B": 1, "E": 0, "G": 1, "F": 0, "D": 0},
+        "G": {"A": 0, "C": 0, "B": 0, "E": 1, "G": 0, "F": 0, "D": 0},
+        "F": {"A": 0, "C": 1, "B": 0, "E": 0, "G": 0, "F": 0, "D": 0},
+        "D": {"A": 0, "C": 0, "B": 1, "E": 0, "G": 0, "F": 0, "D": 0}
     }
     return dijkstra_valid_adjacency_matrix  # noqa: RET504
 
 
 @pytest.fixture()
 def dijkstra_valid_cost():
-    costs = {'A': 0, 'B': 2, 'C': 1, 'D': 7, 'E': 3, 'F': 6, 'G': 4}
+    costs = {"A": 0, "B": 2, "C": 1, "D": 7, "E": 3, "F": 6, "G": 4}
     return costs

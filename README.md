@@ -91,7 +91,7 @@ Output: an $r$-branching in $D$ with predecessor function $p$, and a function $l
 9. return $(p, l)$
 
 
-### Fleury
+### Fleury's Algorithm
 Input: a connected even graph $G$ and a specified vertex $u$ of $G$<br>
 Output: An Euler tour $W$ of  starting (and ending) at $u$
 1. Set $W := u, x := u, F := G$
