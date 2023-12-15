@@ -1,15 +1,25 @@
 ### Imports
 # Standard library
 from math import inf
-from random import choice
 
 # Third-party libraries
 
 # Local files
 from graph_theory.graph import Graph
 
-
-def dijktra_algoritm(graph, r):
+def dijkstra_algoritm(graph: Graph, r: str) -> tuple(dict, dict):
+    """
+    
+    Args:
+        graph: A
+        r: 
+    
+    Returns:
+        predecessor: 
+        cost: 
+        
+        
+    """
     uncoloured = graph.vertices
     predecessor = {v: None for v in graph.vertices}
     cost = {v: inf for v in graph.vertices}

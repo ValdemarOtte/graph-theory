@@ -2,9 +2,8 @@
 # Standard library
 
 # Third-party libraries
-import numpy as np
-import networkx as nx
 import matplotlib.pyplot as plt
+import networkx as nx
 
 # Local files
 from graph import Graph
@@ -45,7 +44,7 @@ def draw_graph(graph: Graph):
                 d["length"],
             )
             for u, v, d in G.edges(data=True)
-        ]
+        ],
     )
 
     plt.show()

@@ -42,7 +42,7 @@ def DFS(graph: Graph, r: None) -> (Graph, dict, dict):
     uncoloured.remove(r)
 
     # Run algorithm while Q is nonemprt
-    while Q != []:
+    while [] != Q:
         index += 1
         # Consider the head of Q
         x = Q[-1]

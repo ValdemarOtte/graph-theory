@@ -31,7 +31,7 @@ def valid_graph():
     valid_graph = {
         "a": ["b", "a", "a", "c", "b"],
         "b": ["a", "c", "a"],
-        "c": ["a", "b"]
+        "c": ["a", "b"],
     }
     # fmt: on
     return valid_graph  # noqa: RET504
