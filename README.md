@@ -6,7 +6,7 @@ Samling af algoritmer fra kurset [Grafteori I](https://kursuskatalog.au.dk/da/co
 - [Bellman-Form](#Bellman-Form)
 - [Deep First Search](#Deep-First-Search)
 - [Dijkstra's Algorithm](#Dijkstras-Algorithm)
-- [Fleury](#Fleury)
+- [Fleury](#Fleurys-Algorithm)
 - [Jarník-Prim Algorithm](#Jarník-Prim-Algorithm)
 - [Max-Flow Min-cut](#Max-Flow-Min-Cut)
 
@@ -36,7 +36,7 @@ Output: an $r$-tree $T$ in $G$ with predecessor function $p$, a level function $
 ### Bellman-Form
 Input: a connected graph $G(r)$<br>
 Output: an $r$-tree $T$ in $G$ with predecessor function $p$, a level function $l$ such that $l(v)=d_g(r,v) \forall v \in V$, and a time function $t$
- 1. set $l(v) := \infty, p(v) := \emptyset, v in V$
+ 1. set $l(v) := \infty, p(v) := \emptyset, v \in V$
  2. remove $r$ from $Q$
  3. set $l(r) := 0$
  4. **while** $Q$ is not $\emptyset$ **do**

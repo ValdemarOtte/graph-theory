@@ -16,6 +16,14 @@ g.add_edge("D", "E")
 
 
 def fleury(graph, u):
-    walk = [u]
+    W = [u]
     x = u
-    F = copy(graph)
+    F = graph.graph
+    if F[x] != []:
+        a = []
+        b = []
+        
+        print(F[x])
+
+
+fleury(g, "A")
