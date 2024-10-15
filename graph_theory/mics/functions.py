@@ -6,6 +6,7 @@ from pathlib import Path
 # Third-party libraries
 
 # Local files
+from graph_theory.exceptions import WrongExtension
 
 
 def read_csv(path: Path) -> list[str]:
@@ -16,8 +17,10 @@ def read_csv(path: Path) -> list[str]:
 
     :param (Path) path: Path to csv-file
     :return: 
-    
+    :raise WrongExtension: If the given path is not a csv-file.
     """
+    if not path.endswith(".csv"):
+        raise WrongExtension
     with open(path) as file:
         return [row for row in csv.reader(file, delimiter=";")][1:]
 

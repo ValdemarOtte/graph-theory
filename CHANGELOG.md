@@ -2,6 +2,9 @@
 
 
 ## v0.1.1
+### New Features
+* Added a wiki with pseudo code of the algorithms
+
 ### Changes
 * Remove algorithm fleury (unfished)
 
@@ -16,4 +19,3 @@
 * Added algorithm Jarnik Prim
 * Added the possibility to draw graphs
 * Added suppport to view adjacency_matrix with Rich
-* 
