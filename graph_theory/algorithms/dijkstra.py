@@ -7,7 +7,8 @@ from math import inf
 # Local files
 from graph_theory.graph import Graph
 
-def dijkstra_algoritm(graph: Graph, r: str) -> tuple(dict, dict):
+
+def dijkstra_algoritm(graph: Graph, r: str) -> tuple[dict, dict]:
     """
     
     Args:

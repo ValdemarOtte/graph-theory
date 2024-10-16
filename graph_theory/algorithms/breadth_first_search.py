@@ -7,7 +7,7 @@ from random import choice
 from graph_theory.graph import Graph
 
 
-def BFS(graph: Graph, r: None) -> tuple[Graph, dict, dict]:
+def BFS(graph: Graph, r: None = None) -> tuple[Graph, dict, dict]:
     """
     Breadth-First Search.
 
@@ -29,7 +29,7 @@ def BFS(graph: Graph, r: None) -> tuple[Graph, dict, dict]:
     level: dict = {}
 
     # Pick root if none is giving
-    if not r:
+    if r == None:
         r = choice(graph.vertices)  # noqa: S311
 
     # Update level, time and visited with root
