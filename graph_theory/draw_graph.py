@@ -6,11 +6,12 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 # Local files
-from graph import Graph
+from graph_theory.graph import Graph
 
 
 def draw_graph(graph: Graph):
     G = nx.DiGraph()
+
 
     for v in graph.vertices:
         G.add_node(v)

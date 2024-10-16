@@ -5,9 +5,9 @@ from pathlib import Path
 # Third-party libraries
 
 # Local files
-from mics.functions import read_csv
-from graph import Graph
-
+from graph_theory.utils.functions import read_csv
+from graph_theory.graph import Graph
+from graph_theory.draw_graph import draw_graph
 
 def read_graph(path: Path) -> Graph:
     """
@@ -33,10 +33,8 @@ def read_graph(path: Path) -> Graph:
 def main() -> None:
 
     g1_path: Path = Path("graph_theory\\data\\graph_1.csv")
-    g1_path = "graph_theory\\draw_graph.py"
     g = read_graph(g1_path)
-
-    pass
+    draw_graph(g)
 
 
 if __name__ == "__main__":

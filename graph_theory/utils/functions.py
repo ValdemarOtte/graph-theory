@@ -19,7 +19,8 @@ def read_csv(path: Path) -> list[str]:
     :return: 
     :raise WrongExtension: If the given path is not a csv-file.
     """
-    if not path.endswith(".csv"):
+    if not path.suffix == ".csv":
+        print(path)
         raise WrongExtension
     with open(path) as file:
         return [row for row in csv.reader(file, delimiter=";")][1:]
