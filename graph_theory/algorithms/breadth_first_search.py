@@ -3,40 +3,40 @@
 from random import choice
 
 # Third-party libraries
+
 # Local files
 from graph_theory.graph import Graph
 
 
-def BFS(graph: Graph, r: None = None) -> tuple[Graph, dict, dict]:
+def breadth_first_search(graph: Graph, root: str = "") -> tuple[Graph, dict, dict]:
     """
-    Breadth-First Search.
+    Breadth First Search algorithm.
+    
+    If no root is given, then the algorithm will pick a random root.
 
-    Args:
-        graph: A connected graph
-        r: The root of the graph which a tree will come from
-
-    Returns:
-        BFS_graph: A r-tree
-        level: A level dict
-        time: A time dict
+    :param (Graph) graph: A connected graph.
+    :param (str) root: The root which the search will start from.
+    :returns (Graph) grapg: bla
+    :returns (dict) level: bla
+    :returns (dict) time: bla
     """
     BFS_graph = Graph()
     # Set variables
-    index = 1
+    index: int = 1
     Q: list = []
     visited: list = []
     time: dict = {}
     level: dict = {}
 
     # Pick root if none is giving
-    if r is None:
-        r = choice(graph.vertices)  # noqa: S311
+    if root == "":
+        root = choice(graph.vertices)  # noqa: S311
 
     # Update level, time and visited with root
-    Q.append(r)
-    time[r] = index
-    level[r] = 0
-    visited.append(r)
+    Q.append(root)
+    time[root] = index
+    level[root] = 0
+    visited.append(root)
 
     # Run algorithm while Q is nonemprt
     while [] != Q:

@@ -8,6 +8,7 @@ from graph_theory.graph import Graph
 # Third-party libraries
 # Local files
 from graph_theory.utils.functions import read_csv
+from graph_theory.algorithms.breadth_first_search import breadth_first_search
 
 
 def read_graph(path: Path) -> Graph:
@@ -31,9 +32,13 @@ def read_graph(path: Path) -> Graph:
 def main() -> None:
     g1_path: Path = Path("graph_theory\\data\\graph_2.csv")
     g = read_graph(g1_path)
-    # g, a, b = BFS(g)
+    g, level, time = breadth_first_search(g)
+    
+    print(g)
+    print(level)
+    print(time)
 
-    draw_graph(g)
+    #draw_graph(g)
 
 
 if __name__ == "__main__":
