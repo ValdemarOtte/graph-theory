@@ -1,5 +1,6 @@
 ### Imports
 # Standard library
+from pathlib import Path
 
 # Third-party libraries
 import pytest
@@ -315,3 +316,9 @@ def dijkstra_valid_predecessor():
 def dijkstra_valid_cost():
     costs = {"A": 0, "B": 2, "C": 1, "D": 7, "E": 3, "F": 6, "G": 4}
     return costs
+
+
+
+@pytest.fixture(scope="session")
+def test_extension_wrong(test_data: Path) -> Path:
+    return test_data / "extension.wrong"

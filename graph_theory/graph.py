@@ -17,48 +17,48 @@ class Graph:
         self.costs: dict = {}
         self.adjacency_matrix: dict = {}
 
-    def add_edge(self, u: str, v: str, oriented: bool = False, cost: float = 0.0) -> None:
+    def add_edge(self, v: str, w: str, oriented: bool = False, cost: float = 0.0) -> None:
         """
         New edge to the graph.
 
-        Args:
-            u: A vertice
-            v: A vertice
-            oriented: If the edge is oriented or not
+        :param (str) v: A vertice
+        :param (str) w: A vertice
+        :param (bool) oriented: a
+        :param (float) cost: a
         """
-        if u not in self.vertices:
-            self.vertices.append(u)
         if v not in self.vertices:
             self.vertices.append(v)
+        if w not in self.vertices:
+            self.vertices.append(w)
 
-        if u not in self.graph:
-            self.graph[u] = []
         if v not in self.graph:
             self.graph[v] = []
+        if w not in self.graph:
+            self.graph[w] = []
 
-        # If the edge is oriented, then its only from u to v
+        # If the edge is oriented, then its only from v to w
         # Else then it both ways
         if oriented:
-            self.graph[u].append(v)
+            self.graph[v].append(w)
         else:
-            self.graph[u].append(v)
-            self.graph[v].append(u)
+            self.graph[v].append(w)
+            self.graph[w].append(v)
 
         if oriented:
-            self.edges["orr"].append((u, v))
+            self.edges["orr"].append((v, w))
 
-            if u not in self.costs:
-                self.costs[u] = {}
-            self.costs[u][v] = cost
-        else:
-            self.edges["not_orr"].append((u, v))
-
-            if u not in self.costs:
-                self.costs[u] = {}
             if v not in self.costs:
                 self.costs[v] = {}
-            self.costs[u][v] = cost
-            self.costs[v][u] = cost
+            self.costs[v][w] = cost
+        else:
+            self.edges["not_orr"].append((v, w))
+
+            if v not in self.costs:
+                self.costs[v] = {}
+            if w not in self.costs:
+                self.costs[w] = {}
+            self.costs[v][w] = cost
+            self.costs[w][v] = cost
 
     def add_vertex(self, vertex: str) -> None:
         if vertex not in self.vertices:
@@ -73,15 +73,15 @@ class Graph:
         matrix: dict = {}
 
         # Create adjacency matrix with all vertices where all values is zero.2
-        for v in self.vertices:
-            matrix[v] = {}
-            for u in self.vertices:
-                matrix[v][u] = 0
+        for w in self.vertices:
+            matrix[w] = {}
+            for v in self.vertices:
+                matrix[w][v] = 0
 
         # Fill the adjacency matrix with number of connections between the vertices.
-        for v in self.graph:
-            for u in self.vertices:
-                matrix[v][u] = self.graph[v].count(u)
+        for w in self.graph:
+            for v in self.vertices:
+                matrix[w][v] = self.graph[w].count(v)
 
         l = []
         for d in matrix.values():
