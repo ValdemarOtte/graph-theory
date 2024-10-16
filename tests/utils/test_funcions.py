@@ -4,9 +4,10 @@
 # Third-party libraries
 import pytest
 
+from graph_theory.exceptions import WrongExtensionError
+
 # Local files
 from graph_theory.utils.functions import read_csv
-from graph_theory.exceptions import WrongExtension
 
 
 class TestUtilsFunctions:
@@ -15,5 +16,5 @@ class TestUtilsFunctions:
 
     def rest_read_csv_error(self, test_extension_wrong):
         """Test if function will not delete the .wrong file."""
-        with pytest.raises(WrongExtension):
+        with pytest.raises(WrongExtensionError):
             read_csv(test_extension_wrong)

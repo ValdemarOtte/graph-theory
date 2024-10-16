@@ -3,23 +3,23 @@
 from math import inf
 
 # Third-party libraries
-
 # Local files
 from graph_theory.graph import Graph
 
 
 def dijkstra_algoritm(graph: Graph, r: str) -> tuple[dict, dict]:
-    """
-    
+    """'
+    Dijkstra Algoritm.
+
     Args:
         graph: A
-        r: 
-    
+        r:
+
     Returns:
-        predecessor: 
-        cost: 
-        
-        
+        predecessor:
+        cost:
+
+
     """
     uncoloured = graph.vertices
     predecessor = {v: None for v in graph.vertices}

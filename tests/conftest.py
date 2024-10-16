@@ -314,9 +314,7 @@ def dijkstra_valid_predecessor():
 
 @pytest.fixture()
 def dijkstra_valid_cost():
-    costs = {"A": 0, "B": 2, "C": 1, "D": 7, "E": 3, "F": 6, "G": 4}
-    return costs
-
+    return {"A": 0, "B": 2, "C": 1, "D": 7, "E": 3, "F": 6, "G": 4}
 
 
 @pytest.fixture(scope="session")

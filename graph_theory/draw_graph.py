@@ -12,7 +12,6 @@ from graph_theory.graph import Graph
 def draw_graph(graph: Graph):
     G = nx.DiGraph()
 
-
     for v in graph.vertices:
         G.add_node(v)
 
@@ -33,19 +32,6 @@ def draw_graph(graph: Graph):
         edgelist=graph.edges["orr"],
         connectionstyle="arc3, rad = 0.1",
         arrows=True,
-    )
-
-    edge_labels = dict(
-        [
-            (
-                (
-                    u,
-                    v,
-                ),
-                d["length"],
-            )
-            for u, v, d in G.edges(data=True)
-        ],
     )
 
     plt.show()

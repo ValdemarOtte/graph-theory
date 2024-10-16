@@ -15,7 +15,7 @@ class TestJDijkstraAlgoritm:
         dijkstra_valid_predecessor: dict,
         dijkstra_valid_cost: float,
     ):
-        """Test if Dijkstra Algoritm runs without any errors"""
+        """Test if Dijkstra Algoritm runs without any errors."""
         predecessor, cost = dijkstra_algoritm(dijkstra_graph, "A")
         assert predecessor == dijkstra_valid_predecessor
         assert cost == dijkstra_valid_cost

@@ -5,5 +5,5 @@ class GraphTheoryError(Exception):
     """Base class for Graph Theory errors."""
 
 
-class WrongExtension(GraphTheoryError):
+class WrongExtensionError(GraphTheoryError):
     """IF given extension is wrong."""
