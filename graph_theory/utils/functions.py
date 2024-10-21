@@ -40,10 +40,24 @@ def merge_dict_to_tabel(data: list[dict], labels: list[str]) -> list[list]:
             merge_data[i].append(str(element[key]))
     return merge_data
 
+
+def print_tabel(data: list[list]):
+    
+    lenght: list = [0 for _ in data[0]]
+    for row in data:
+        for i, element in enumerate(row):
+            if len(element) > lenght[i]:
+                lenght[i] = len(element)
+    
+    for i, row in enumerate(data):
+        print(" | ".join(row))
+
+
 if __name__ == "__main__":
     level = {'I': 0, 'C': 1, 'M': 1, 'A': 2, 'D': 2, 'G': 2, 'H': 2, 'J': 2, 'B': 3, 'E': 3, 'L': 3, 'F': 3, 'K': 3}    
     time = {'I': 1, 'C': 2, 'M': 3, 'A': 4, 'D': 5, 'G': 6, 'H': 7, 'J': 8, 'B': 9, 'E': 10, 'L': 11, 'F': 12, 'K': 13}
     data = [level, time]
     labels = ["level", "time"]
     merge_data = merge_dict_to_tabel(data, labels)
+    print_tabel(merge_data)
     
